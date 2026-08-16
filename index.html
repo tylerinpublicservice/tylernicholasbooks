@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tyler Nicholas — Books</title>
+<meta name="description" content="The written work of Tyler Nicholas. Writer, storyteller, Seychelles." />
+<link rel="icon" href="https://i.ibb.co/GQf0hjq1/Tyler-Nicholas-Books-removebg-preview.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ivory:#F7F2E8; --ivory-2:#EFE7D6; --ink:#241f1a; --ink-soft:#5c5346;
+    --wine:#7c3b52; --wine-deep:#5f2c40; --gold:#b0894f;
+    --line:rgba(36,31,26,.12); --card:#FFFDF8;
+    --shadow-sm:0 2px 4px rgba(60,40,30,.04),0 14px 30px -18px rgba(60,40,30,.3);
+    --shadow:0 30px 60px -30px rgba(60,40,30,.4);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{font-family:"EB Garamond",Georgia,serif;color:var(--ink);background:var(--ivory);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .disp{font-family:"Fraunces",Georgia,serif}
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}
+  :focus-visible{outline:2px solid var(--wine);outline-offset:3px;border-radius:4px}
+  .wrap{max-width:1080px;margin:0 auto;padding-inline:22px}
+  .eyebrow{font-size:.74rem;letter-spacing:.24em;text-transform:uppercase;color:var(--wine);font-style:italic}
+
+  /* nav */
+  header{position:sticky;top:0;z-index:50;background:rgba(247,242,232,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+  .brand img{height:38px;width:auto}
+  .nav-links{display:flex;gap:26px;align-items:center}
+  .nav-links a{font-size:.98rem;color:var(--ink-soft);transition:color .2s}
+  .nav-links a:hover{color:var(--wine)}
+  @media(max-width:560px){.nav-links a.hide-sm{display:none}}
+
+  .announce{background:var(--wine-deep);color:#f6e9ee;text-align:center;font-size:.9rem;padding:9px 16px;display:none}
+  .announce.show{display:block}
+
+  /* hero */
+  .hero{padding:clamp(60px,11vh,120px) 0 clamp(40px,7vh,72px);text-align:center;position:relative}
+  .hero::after{content:"";display:block;width:60px;height:2px;background:var(--gold);opacity:.6;margin:34px auto 0}
+  .hero h1{font-family:"Fraunces",serif;font-weight:500;font-size:clamp(2.6rem,8vw,4.6rem);line-height:1.02;letter-spacing:-.02em;margin-top:16px}
+  .hero .tag{font-style:italic;color:var(--ink-soft);font-size:clamp(1.05rem,2.6vw,1.3rem);margin-top:18px}
+  .hero .intro{max-width:56ch;margin:22px auto 0;color:var(--ink-soft);font-size:1.08rem}
+  .hero .cta{margin-top:30px}
+  .btn{display:inline-flex;align-items:center;gap:9px;font-size:1rem;padding:13px 28px;border-radius:2px;
+    background:var(--wine);color:#fff;transition:background .2s,transform .08s;letter-spacing:.01em}
+  .btn:hover{background:var(--wine-deep)}
+  .btn:active{transform:translateY(1px)}
+  .btn.ghost{background:transparent;color:var(--wine);border:1px solid var(--wine)}
+  .btn.ghost:hover{background:rgba(124,59,82,.07)}
+
+  section{padding-block:clamp(48px,8vh,86px)}
+  .sec-head{text-align:center;margin-bottom:44px}
+  .sec-head h2{font-family:"Fraunces",serif;font-weight:500;font-size:clamp(1.8rem,4.4vw,2.6rem);margin-top:10px}
+
+  /* featured */
+  .featured{background:var(--ivory-2);border-block:1px solid var(--line)}
+  .feat-grid{display:grid;grid-template-columns:minmax(200px,260px) 1fr;gap:clamp(28px,5vw,56px);align-items:center;max-width:900px;margin:0 auto}
+  .feat-copy .eyebrow{margin-bottom:12px;display:block}
+  .feat-copy h3{font-family:"Fraunces",serif;font-weight:500;font-size:clamp(1.7rem,4vw,2.5rem);line-height:1.1}
+  .feat-copy .sub{font-style:italic;color:var(--ink-soft);margin-top:6px}
+  .feat-copy p{margin-top:18px;color:var(--ink-soft);font-size:1.06rem;max-width:52ch}
+  .feat-copy .row{margin-top:26px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  @media(max-width:640px){.feat-grid{grid-template-columns:1fr;justify-items:center;text-align:center}.feat-copy p{margin-inline:auto}.feat-copy .row{justify-content:center}}
+
+  /* book cover */
+  .cover{position:relative;aspect-ratio:2/3;width:100%;border-radius:3px;overflow:hidden;box-shadow:var(--shadow);background:#efe7d6}
+  .cover img{width:100%;height:100%;object-fit:cover}
+  .cover.ph{display:grid;place-items:center;padding:22px;text-align:center;
+    background:linear-gradient(150deg,var(--wine),var(--wine-deep));color:#f7ecdf}
+  .cover.ph .ph-t{font-family:"Fraunces",serif;font-size:1.3rem;line-height:1.2}
+  .cover.ph::after{content:"";position:absolute;left:10px;top:8px;bottom:8px;width:3px;background:rgba(255,255,255,.18)}
+  .lockchip{position:absolute;top:10px;right:10px;background:rgba(36,31,26,.72);color:#f7ecdf;
+    font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;padding:5px 9px;border-radius:2px;display:flex;align-items:center;gap:5px}
+  .lockchip svg{width:11px;height:11px}
+
+  /* collection grid */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:clamp(20px,4vw,36px)}
+  .book{display:flex;flex-direction:column;gap:12px;transition:transform .2s}
+  .book:hover{transform:translateY(-5px)}
+  .book .cover{box-shadow:var(--shadow-sm)}
+  .book:hover .cover{box-shadow:var(--shadow)}
+  .book .bt{font-family:"Fraunces",serif;font-size:1.12rem;line-height:1.2}
+  .book .meta{font-size:.86rem;color:var(--ink-soft);display:flex;gap:8px;align-items:center}
+  .badge{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--wine);border:1px solid var(--line);padding:2px 8px;border-radius:2px}
+  .badge.price{color:var(--ink);border-color:var(--gold)}
+
+  .empty{grid-column:1/-1;text-align:center;color:var(--ink-soft);font-style:italic;padding:40px}
+
+  /* about */
+  .about{max-width:680px;margin:0 auto;text-align:center}
+  .about p{font-size:1.12rem;color:var(--ink-soft);margin-top:10px}
+  .about .portrait{width:120px;height:120px;border-radius:50%;object-fit:cover;margin:0 auto 22px;box-shadow:var(--shadow-sm)}
+
+  /* footer */
+  footer{background:var(--ink);color:#d9cfc0;padding:56px 0 30px}
+  footer .fwrap{max-width:1080px;margin:0 auto;padding-inline:22px;text-align:center}
+  footer .flogo{height:40px;margin:0 auto 20px;opacity:.92}
+  footer .also{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:#9b8f7f;margin-bottom:12px}
+  footer .ventures{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:center;margin-bottom:26px}
+  footer .ventures a{font-size:.95rem;color:#d9cfc0;transition:color .2s}
+  footer .ventures a:hover{color:#fff}
+  footer .copy{border-top:1px solid rgba(255,255,255,.12);padding-top:22px;font-size:.85rem;color:#9b8f7f}
+
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+  <div class="announce" id="announce"></div>
+
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="/" aria-label="Tyler Nicholas Books — home">
+        <img src="https://i.ibb.co/GQf0hjq1/Tyler-Nicholas-Books-removebg-preview.png" alt="Tyler Nicholas Books" />
+      </a>
+      <nav class="nav-links">
+        <a href="#collection">Books</a>
+        <a href="#about" class="hide-sm">About</a>
+        <a href="#collection" class="btn ghost" style="padding:9px 18px">Browse</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero wrap">
+      <span class="eyebrow">The written work of</span>
+      <h1 class="disp" id="heroTitle">Tyler Nicholas</h1>
+      <p class="tag" id="heroTag">Writer. Storyteller. Seychelles.</p>
+      <p class="intro">Stories about distance and belonging, about the people and places that stay with us. Some are here to read freely. Some you can keep. And one was written for a single person.</p>
+      <div class="cta"><a href="#collection" class="btn">Browse the collection</a></div>
+    </section>
+
+    <section class="featured" id="featured" style="display:none">
+      <div class="wrap">
+        <div class="feat-grid reveal">
+          <a id="featCoverLink" href="#"><div id="featCover"></div></a>
+          <div class="feat-copy">
+            <span class="eyebrow">Featured</span>
+            <h3 class="disp" id="featTitle"></h3>
+            <div class="sub" id="featSub"></div>
+            <p id="featDesc"></p>
+            <div class="row" id="featRow"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="collection">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <span class="eyebrow">The collection</span>
+          <h2 class="disp">Every book, in one place</h2>
+        </div>
+        <div class="grid" id="grid">
+          <div class="empty">Opening the shelf…</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" style="background:var(--ivory-2);border-block:1px solid var(--line)">
+      <div class="wrap about reveal">
+        <img class="portrait" id="portrait" alt="Tyler Nicholas" style="display:none" />
+        <span class="eyebrow">About the author</span>
+        <p id="aboutText">Tyler Nicholas is a young Seychellois writer and youth leader. He writes about the quiet, ordinary moments that turn out to matter most — and about what it means to carry a place, or a person, with you long after you have left them behind.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="fwrap">
+      <img class="flogo" src="https://i.ibb.co/GQf0hjq1/Tyler-Nicholas-Books-removebg-preview.png" alt="Tyler Nicholas Books" />
+      <div class="also">Also from Tyler Nicholas</div>
+      <div class="ventures">
+        <a href="https://nicholasoffice.online" target="_blank" rel="noopener">Office of Tyler Nicholas</a>
+        <a href="https://tylernicholasgroup.com" target="_blank" rel="noopener">Tyler Nicholas Group</a>
+        <a href="https://tyler-nicholas-foundation.online" target="_blank" rel="noopener">Tyler Nicholas Foundation</a>
+        <a href="https://foodshare-seychelles.online" target="_blank" rel="noopener">FoodShare Seychelles</a>
+      </div>
+      <div class="copy">© <span id="year"></span> Tyler Nicholas Books. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    const SUPABASE_URL  = "https://lanrakgrrbyfhtzcxnof.supabase.co";
+    const SUPABASE_ANON = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxhbnJha2dycmJ5Zmh0emN4bm9mIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODU2NzQwMTQsImV4cCI6MjEwMTI1MDAxNH0.gHaVFXo5vRjcOTlwHRaNNOP1WXqL_4h3ieWg6xnz3hY";
+    const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
+    const $ = (s,r=document)=>r.querySelector(s);
+    const esc = s => String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const lockSVG='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>';
+    const money=(b)=> new Intl.NumberFormat(undefined,{style:'currency',currency:b.currency||'USD'}).format(b.price||0);
+    const detailHref=(b)=> `book.html?slug=${encodeURIComponent(b.slug)}`;
+
+    function coverEl(b, forFeatured){
+      if(b.cover_url) return `<div class="cover">${b.type==='private'?chip():''}<img src="${esc(b.cover_url)}" alt="${esc(b.title)}"/></div>`;
+      return `<div class="cover ph">${b.type==='private'?chip():''}<div class="ph-t">${esc(b.title)}</div></div>`;
+    }
+    function chip(){ return `<span class="lockchip">${lockSVG} Private</span>`; }
+    function badge(b){
+      if(b.type==='private') return `<span class="badge">Private</span>`;
+      if(b.type==='paid')    return `<span class="badge price">${money(b)}</span>`;
+      return `<span class="badge">Free</span>`;
+    }
+    function actionLabel(b){ return b.type==='private' ? 'Read book' : (b.type==='paid' ? 'View & buy' : 'Read'); }
+
+    // Fallback sample so the page still renders if the DB is empty/unreachable
+    const SAMPLE=[{slug:'the-summer-i-found-home',title:'The Summer I Found Home',subtitle:'A private memoir',
+      blurb:'A story that belongs to one person.',description:'A private memoir, written for someone who already knows why. This one is not for sale and not for everyone — it opens only for the person it was written for.',
+      type:'private',action_url:'/the-summer-i-found-home',cover_url:null,is_featured:true}];
+
+    (async function init(){
+      let settings=null, books=[];
+      try{
+        const s = await sb.from('tnb_settings').select('*').eq('id',1).maybeSingle();
+        settings = s.data;
+        const r = await sb.from('tnb_books').select('*').eq('status','published').order('sort_order',{ascending:true});
+        books = r.data || [];
+      }catch(e){}
+      if(!books.length) books = SAMPLE;
+
+      // settings
+      if(settings){
+        if(settings.site_title) $('#heroTitle').textContent = settings.site_title;
+        if(settings.tagline) $('#heroTag').textContent = settings.tagline;
+        if(settings.about_text) $('#aboutText').textContent = settings.about_text;
+        if(settings.portrait_url){ const p=$('#portrait'); p.src=settings.portrait_url; p.style.display='block'; }
+        if(settings.announcement_active && settings.announcement_text){
+          const a=$('#announce'); a.textContent=settings.announcement_text; a.classList.add('show');
+        }
+      }
+
+      // featured
+      const featSlug = settings && settings.featured_book_slug;
+      const feat = books.find(b=>b.slug===featSlug) || books.find(b=>b.is_featured) || null;
+      if(feat){
+        $('#featured').style.display='';
+        $('#featCover').outerHTML = `<div id="featCover">${coverEl(feat,true)}</div>`;
+        $('#featCoverLink').href = detailHref(feat);
+        $('#featTitle').textContent = feat.title;
+        $('#featSub').textContent = feat.subtitle||'';
+        $('#featDesc').textContent = feat.description || feat.blurb || '';
+        $('#featRow').innerHTML = `<a class="btn" href="${detailHref(feat)}">${actionLabel(feat)}</a> ${badge(feat)}`;
+      }
+
+      // collection grid
+      const grid=$('#grid'); grid.innerHTML='';
+      if(!books.length){ grid.innerHTML=`<div class="empty">New books are on the way.</div>`; return; }
+      books.forEach(b=>{
+        const a=document.createElement('a'); a.className='book'; a.href=detailHref(b);
+        a.innerHTML = `${coverEl(b)}<div class="bt">${esc(b.title)}</div><div class="meta">${badge(b)}${b.subtitle?`<span>${esc(b.subtitle)}</span>`:''}</div>`;
+        grid.appendChild(a);
+      });
+
+      // reveals
+      const io=new IntersectionObserver(en=>en.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.12});
+      document.querySelectorAll('.reveal').forEach(r=>io.observe(r));
+    })();
+  </script>
+</body>
+</html>
