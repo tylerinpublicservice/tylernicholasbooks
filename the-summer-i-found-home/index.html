@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>&nbsp;</title>
+<meta name="robots" content="noindex, nofollow" />
+<link rel="icon" href="https://static.vecteezy.com/system/resources/previews/054/848/394/non_2x/glossy-red-heart-shape-symbolizing-love-and-affection-free-png.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IM+Fell+English:ital@0;1&family=Parisienne&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --paper:#efe4cf; --paper-2:#e8dcc2; --paper-edge:#d8c8a6;
+    --ink:#40352a; --ink-soft:#6c5c48;
+    --rose:#d98aa9; --rose-deep:#bd6486;
+    --blue:#8fb8dd; --blue-deep:#5f8fc0;
+    --gold:#b8925a; --leather:#5c3a2e; --leather-2:#472b22;
+    --shadow:0 30px 70px -30px rgba(40,25,15,.7);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{font-family:"EB Garamond",Georgia,serif;color:var(--ink);background:#241a12;line-height:1.7;-webkit-font-smoothing:antialiased;overflow:hidden;height:100vh}
+  .fell{font-family:"IM Fell English",serif}
+  .script{font-family:"Parisienne",cursive}
+  img{display:block;max-width:100%}
+  button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}
+  input{font-family:inherit}
+  :focus-visible{outline:2px solid var(--rose-deep);outline-offset:3px}
+
+  .layer{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;overflow:hidden}
+  .hidden{display:none!important}
+  .fade-out{animation:fadeOut .8s forwards}
+  @keyframes fadeOut{to{opacity:0;visibility:hidden}}
+  .fade-in{animation:fadeIn 1s forwards}
+  @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+  @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+
+  /* ACT 1 */
+  #gate{background:#0b1a24}
+  #gate .bg{position:absolute;inset:0;background:url("https://www.iconicafrica.com/wp-content/uploads/2016/12/Iconic-Africa-Swim-With-Dolphins-Mozambique.jpg") center/cover no-repeat;filter:saturate(.92)}
+  #gate .veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,16,24,.5),rgba(6,16,24,.66) 60%,rgba(6,16,24,.8))}
+  .gate-inner{position:relative;z-index:2;text-align:center;padding:24px;max-width:620px}
+  .gate-line{font-style:italic;color:#fdf6ec;font-size:clamp(1.4rem,4.6vw,2.1rem);line-height:1.5;text-shadow:0 2px 24px rgba(0,0,0,.6);opacity:0;animation:rise 1.4s .3s forwards}
+  .keyhole{margin:38px auto 0;width:64px;height:64px;border-radius:50%;border:1.5px solid rgba(255,255,255,.5);display:grid;place-items:center;color:rgba(255,255,255,.85);background:rgba(255,255,255,.06);backdrop-filter:blur(3px);opacity:0;animation:rise 1.4s .8s forwards,pulse 3s 2s infinite}
+  .keyhole svg{width:26px;height:26px}
+  @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(255,255,255,.18)}50%{box-shadow:0 0 0 12px rgba(255,255,255,0)}}
+  .key-wrap{margin:34px auto 0;max-width:300px;opacity:0;height:0;overflow:hidden;transition:opacity .5s}
+  .key-wrap.show{opacity:1;height:auto}
+  .key-wrap input{width:100%;text-align:center;letter-spacing:2px;padding:14px;font-size:16px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.35);border-radius:12px;color:#fff}
+  .key-wrap input::placeholder{color:rgba(255,255,255,.5)}
+  .key-wrap input:focus{outline:none;border-color:#fff;background:rgba(255,255,255,.16)}
+  .key-msg{min-height:1.2em;margin-top:12px;color:#f3cdd9;font-style:italic;font-size:.95rem;opacity:0;transition:opacity .3s}
+  .key-msg.show{opacity:1}
+
+  /* ACT 2 */
+  #reunion{background:radial-gradient(1200px 800px at 50% 40%,#f6dfe9 0%,#ead7e6 40%,#d8c9e2 100%)}
+  .reunion-stage{position:relative;width:100%;max-width:640px;height:60vh;max-height:520px}
+  .portrait{position:absolute;bottom:8%;width:44%;max-width:230px;filter:drop-shadow(0 20px 30px rgba(80,40,60,.35))}
+  .portrait.him{left:-50%;animation:slideR 2.4s 1s cubic-bezier(.5,0,.2,1) forwards}
+  .portrait.her{right:-50%;animation:slideL 2.4s 1s cubic-bezier(.5,0,.2,1) forwards}
+  @keyframes slideR{to{left:8%}}
+  @keyframes slideL{to{right:8%}}
+  .glow{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%) scale(0);width:130px;height:130px;border-radius:50%;background:radial-gradient(circle,rgba(255,225,236,.95),rgba(216,138,169,.5) 45%,transparent 70%);animation:bloom 2s 3s forwards}
+  @keyframes bloom{50%{transform:translate(-50%,-50%) scale(1.15);opacity:1}100%{transform:translate(-50%,-50%) scale(1);opacity:.9}}
+  .heart-r{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%) scale(0);width:44px;height:44px;animation:heartPop 1.2s 3.4s forwards}
+  @keyframes heartPop{0%{transform:translate(-50%,-50%) scale(0)}60%{transform:translate(-50%,-50%) scale(1.25)}100%{transform:translate(-50%,-50%) scale(1)}}
+  .reunion-text{position:absolute;left:0;right:0;bottom:2%;text-align:center;padding:0 20px}
+  .reunion-text p{font-family:"Parisienne",cursive;color:#7a4a5e;font-size:clamp(1.4rem,5vw,2rem);opacity:0}
+  .reunion-text .l1{animation:rise 1.4s 4.2s forwards}
+  .reunion-text .l2{margin-top:2px;animation:rise 1.6s 5.8s forwards}
+  .reunion-tap{position:absolute;bottom:-40px;left:0;right:0;text-align:center;color:#8a6a78;font-style:italic;font-size:.9rem;opacity:0;animation:fadeIn 1s 7.8s forwards}
+
+  /* ACT 3 */
+  #diary{background:radial-gradient(1000px 700px at 50% 30%,#3a2a1e,#1c130d)}
+  .book3d{position:relative;width:min(78vw,340px);aspect-ratio:.72;perspective:1600px}
+  .cover{position:absolute;inset:0;border-radius:8px 14px 14px 8px;transform-origin:left center;background:linear-gradient(135deg,var(--leather) 0%,var(--leather-2) 100%);box-shadow:var(--shadow),inset 0 0 60px rgba(0,0,0,.4);display:grid;place-items:center;z-index:3;backface-visibility:hidden;border:1px solid #2c1a13}
+  .cover::before{content:"";position:absolute;inset:12px;border:1.5px solid rgba(184,146,90,.55);border-radius:5px}
+  .cover .heart-emb{width:74px;height:74px;opacity:.9;filter:drop-shadow(0 2px 4px rgba(0,0,0,.5))}
+  .cover .ctitle{position:absolute;bottom:18%;width:100%;text-align:center;color:#e8c489;font-family:"Parisienne",cursive;font-size:1.7rem;text-shadow:0 1px 3px rgba(0,0,0,.5)}
+  .cover .clasp{position:absolute;right:-8px;top:50%;transform:translateY(-50%);width:20px;height:54px;border-radius:4px;background:linear-gradient(#d9b877,#a17c3f);box-shadow:0 2px 6px rgba(0,0,0,.5)}
+  .pages-stack{position:absolute;inset:0;border-radius:8px 12px 12px 8px;background:var(--paper);box-shadow:inset -8px 0 18px rgba(120,90,50,.25);z-index:1}
+  .pages-stack::after{content:"";position:absolute;right:0;top:2%;bottom:2%;width:8px;background:repeating-linear-gradient(var(--paper-edge) 0 2px,var(--paper) 2px 4px)}
+  #diary.open .cover{animation:openCover 1.8s .4s cubic-bezier(.4,0,.2,1) forwards}
+  @keyframes openCover{to{transform:rotateY(-165deg)}}
+  .diary-hint{position:absolute;bottom:8%;color:#c9a96b;font-style:italic;font-size:.9rem;text-align:center;width:100%;animation:fadeIn 1s .5s both}
+
+  /* THE BOOK */
+  #book{background:radial-gradient(1200px 800px at 50% 0%,#2c2016,#160f0a);flex-direction:column}
+  .book-frame{position:relative;width:min(96vw,560px);height:min(88svh,860px);perspective:1800px}
+  .page{position:absolute;inset:0;border-radius:6px;overflow:hidden;background:radial-gradient(120% 100% at 0% 0%, rgba(255,250,236,.5), transparent 40%),linear-gradient(180deg,var(--paper),var(--paper-2));box-shadow:var(--shadow)}
+  .page::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(140% 120% at 50% 50%, transparent 60%, rgba(90,60,25,.16)),linear-gradient(90deg, rgba(90,60,25,.18), transparent 8%, transparent 92%, rgba(90,60,25,.14));mix-blend-mode:multiply}
+  .page::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/><feColorMatrix type='matrix' values='0 0 0 0 0.4 0 0 0 0 0.3 0 0 0 0 0.15 0 0 0 0.05 0'/></filter><rect width='120' height='120' filter='url(%23n)'/></svg>")}
+  .page-inner{position:absolute;inset:0;padding:clamp(30px,7vw,54px) clamp(26px,7vw,50px);display:flex;flex-direction:column;overflow:hidden;z-index:2}
+
+  .p-chapter-num{font-family:"IM Fell English",serif;font-style:italic;color:var(--rose-deep);font-size:.9rem;letter-spacing:.32em;text-transform:uppercase;text-align:center;margin-bottom:8px}
+  .p-chapter-title{font-family:"IM Fell English",serif;color:var(--ink);text-align:center;font-size:clamp(1.5rem,5.2vw,2rem);line-height:1.2;margin-bottom:6px}
+  .p-chapter-rule{width:46px;height:2px;background:var(--gold);opacity:.6;margin:12px auto 22px;border-radius:2px}
+  .p-text{font-size:clamp(1.02rem,3.5vw,1.14rem);color:var(--ink);text-align:justify;margin-bottom:14px;hyphens:auto}
+  .p-text.first::first-letter{font-family:"IM Fell English",serif;float:left;font-size:3.4em;line-height:.8;padding:6px 8px 0 0;color:var(--rose-deep)}
+  .p-quote{margin:auto;text-align:center;max-width:22ch}
+  .p-quote .q{font-family:"Parisienne",cursive;font-size:clamp(1.6rem,6vw,2.3rem);color:var(--rose-deep);line-height:1.35}
+  .p-quote .orn{margin-top:18px;color:var(--blue-deep);letter-spacing:.4em;opacity:.7}
+  .p-title-main{margin:auto;text-align:center}
+  .p-title-main .tt{font-family:"IM Fell English",serif;font-size:clamp(2rem,8vw,3rem);line-height:1.1;color:var(--ink)}
+  .p-title-main .ded{font-family:"Parisienne",cursive;font-size:1.5rem;color:var(--rose-deep);margin-top:20px}
+  .p-title-main .epi{font-style:italic;color:var(--ink-soft);margin-top:26px;max-width:26ch;margin-inline:auto}
+  .photo{margin:auto;width:100%}
+  .photo .frame{background:#fff;padding:10px 10px 34px;border-radius:3px;transform:rotate(-1.6deg);box-shadow:0 14px 30px -14px rgba(40,25,15,.6);border:1px solid #eee}
+  .photo .frame img{width:100%;border-radius:2px;background:#e7d9c4}
+  .photo .cap{text-align:center;font-family:"Parisienne",cursive;color:var(--ink-soft);font-size:1.3rem;margin-top:-22px;position:relative}
+  .page-num{position:absolute;bottom:14px;left:0;right:0;text-align:center;font-style:italic;color:var(--ink-soft);font-size:.82rem;z-index:3}
+
+  .leaf{position:absolute;inset:0;transform-origin:left center;transform-style:preserve-3d;z-index:20;transition:transform .78s cubic-bezier(.4,.1,.2,1);border-radius:6px;overflow:hidden;box-shadow:0 0 40px rgba(0,0,0,.25)}
+  .leaf .lshade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(60,40,20,.35),transparent 40%);opacity:0;transition:opacity .4s;pointer-events:none;z-index:5}
+  .leaf.flip-next{transform:rotateY(-172deg)}
+  .leaf.flip-next .lshade{opacity:1}
+  .leaf.pre-prev{transform:rotateY(-172deg)}
+  .leaf.flip-prev{transform:rotateY(0deg)}
+
+  .tapz{position:absolute;top:0;bottom:0;width:34%;z-index:15}
+  .tapz.left{left:0}.tapz.right{right:0}
+  .book-chrome{margin-top:12px;display:flex;align-items:center;gap:14px;justify-content:center}
+  .prog{width:min(70vw,320px);height:3px;background:rgba(216,192,144,.2);border-radius:3px;overflow:hidden}
+  .prog > i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--rose),var(--blue));transition:width .4s}
+  .navhint{position:absolute;bottom:64px;right:16px;color:var(--ink-soft);font-style:italic;font-size:.8rem;opacity:.7;z-index:3;animation:fadeIn 1s both}
+
+  .idx-btn,.music-btn{position:fixed;z-index:40;width:44px;height:44px;border-radius:50%;background:rgba(30,20,12,.6);border:1px solid rgba(216,192,144,.4);color:#e8c489;display:grid;place-items:center}
+  .idx-btn{top:14px;left:14px}.music-btn{top:14px;right:14px}
+  .idx-btn svg,.music-btn svg{width:20px;height:20px}
+
+  .contents{position:fixed;inset:0;z-index:60;background:rgba(20,13,8,.9);backdrop-filter:blur(6px);display:none;flex-direction:column;padding:64px 24px;overflow-y:auto}
+  .contents.show{display:flex}
+  .contents h3{font-family:"Parisienne",cursive;color:#e8c489;font-size:2rem;text-align:center;margin-bottom:20px}
+  .contents a{display:block;text-align:center;color:#efe4cf;font-family:"IM Fell English",serif;font-size:1.15rem;padding:12px;border-bottom:1px solid rgba(216,192,144,.14)}
+  .contents a:hover{color:var(--rose)}
+  .contents .close-x{position:fixed;top:16px;right:16px;color:#e8c489;font-size:1.6rem}
+
+  .interlude{margin:auto;text-align:center;width:100%}
+  .interlude .cap{font-family:"Parisienne",cursive;color:var(--ink-soft);font-size:1.4rem;margin-top:16px}
+  .ballerina{width:150px;height:210px;margin:0 auto;transform-origin:50% 88%;animation:sway 4s ease-in-out infinite}
+  @keyframes sway{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+  .ballerina .spin{transform-origin:50% 60%;animation:pirou 6s ease-in-out infinite}
+  @keyframes pirou{0%,20%{transform:rotateY(0)}50%{transform:rotateY(180deg)}80%,100%{transform:rotateY(360deg)}}
+  .planescene{position:relative;width:100%;height:200px;margin:0 auto;overflow:hidden;border-radius:10px;background:linear-gradient(180deg,#cfe6f7,#eaf3fb 70%,#f3ead9)}
+  .planescene .cloud{position:absolute;background:#fff;border-radius:50%;opacity:.85}
+  .planescene .plane{position:absolute;top:26%;left:-20%;width:54px;color:#5f8fc0;animation:fly 9s linear infinite}
+  @keyframes fly{to{left:120%}}
+  .planescene .couple{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:120px;color:#3f342a}
+  .planescene .heart-air{position:absolute;top:16%;left:64%;width:16px;height:16px;color:var(--rose-deep);animation:floatUp 4s ease-in-out infinite}
+  @keyframes floatUp{0%,100%{transform:translateY(0);opacity:.7}50%{transform:translateY(-8px);opacity:1}}
+
+  #measure{position:fixed;left:-9999px;top:0;z-index:-1;visibility:hidden}
+
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:opacity .2s!important}
+    .portrait.him{left:8%}.portrait.her{right:8%}.glow,.heart-r{transform:translate(-50%,-50%) scale(1);opacity:.9}
+    .reunion-text p{opacity:1}
+  }
+</style>
+</head>
+<body>
+
+  <div class="layer" id="gate">
+    <div class="bg"></div><div class="veil"></div>
+    <div class="gate-inner">
+      <p class="gate-line">Some stories deserve a special place to live. This one is ours.</p>
+      <button class="keyhole" id="keyhole" aria-label="Enter">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="9" r="3.4"/><path d="M12 12.4L10.5 20h3z"/></svg>
+      </button>
+      <form class="key-wrap" id="keyWrap">
+        <input id="keyInput" type="password" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="…" aria-label="Our word" />
+        <div class="key-msg" id="keyMsg"></div>
+      </form>
+    </div>
+  </div>
+
+  <div class="layer hidden" id="reunion">
+    <div class="reunion-stage">
+      <img class="portrait him" src="https://i.ibb.co/cW535ch/1000074342-removebg-preview.png" alt="" />
+      <img class="portrait her" src="https://i.ibb.co/SwT2dXrF/1000079586-removebg-preview.png" alt="" />
+      <div class="glow"></div>
+      <svg class="heart-r" viewBox="0 0 24 24" fill="#bd6486"><path d="M12 21s-8-4.6-8-10a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 11c0 5.4-8 10-8 10z"/></svg>
+      <div class="reunion-text">
+        <p class="l1">For you, and only you.</p>
+        <p class="l2">You are a thousand miles away, but the closest to my heart.</p>
+        <div class="reunion-tap" id="reunionTap">tap to open our story</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="layer hidden" id="diary">
+    <div class="book3d">
+      <div class="pages-stack"></div>
+      <div class="cover">
+        <svg class="heart-emb" viewBox="0 0 24 24" fill="#c9a96b"><path d="M12 21s-8-4.6-8-10a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 11c0 5.4-8 10-8 10z"/></svg>
+        <div class="ctitle">Our Story</div>
+        <div class="clasp"></div>
+      </div>
+    </div>
+    <div class="diary-hint" id="diaryHint">tap to open</div>
+  </div>
+
+  <div class="layer hidden" id="book">
+    <button class="idx-btn" id="idxBtn" aria-label="Contents">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+    </button>
+    <button class="music-btn" id="musicBtn" aria-label="Music">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+    </button>
+    <div class="book-frame" id="bookFrame">
+      <div class="page" id="staticPage"><div class="page-inner" id="staticInner"></div><div class="page-num" id="staticNum"></div></div>
+      <div class="tapz left" id="tapPrev"></div>
+      <div class="tapz right" id="tapNext"></div>
+    </div>
+    <div class="book-chrome"><div class="prog"><i id="progFill"></i></div></div>
+  </div>
+
+  <div class="contents" id="contents">
+    <button class="close-x" id="contentsClose" aria-label="Close">&times;</button>
+    <h3>Contents</h3>
+    <div id="contentsList"></div>
+  </div>
+
+  <div id="measure"><div class="page"><div class="page-inner" id="measureInner"></div></div></div>
+  <div id="yt" style="position:fixed;left:-9999px;top:-9999px;width:1px;height:1px"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+  const PREVIEW_MODE = false;
+  const SUPABASE_URL  = "https://lanrakgrrbyfhtzcxnof.supabase.co";
+  const SUPABASE_ANON = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxhbnJha2dycmJ5Zmh0emN4bm9mIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODU2NzQwMTQsImV4cCI6MjEwMTI1MDAxNH0.gHaVFXo5vRjcOTlwHRaNNOP1WXqL_4h3ieWg6xnz3hY";
+  const HOME_PATH = "/";
+  const YT_VIDEO_ID = "CqMWEjXGJg0";
+
+  const sb = (!PREVIEW_MODE && window.supabase) ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON) : null;
+  const $ = (s,r=document)=>r.querySelector(s);
+
+  (async function guard(){
+    if(PREVIEW_MODE) return;
+    try{ const {data:{session}}=await sb.auth.getSession(); if(!session) window.location.replace(HOME_PATH); }
+    catch(e){ window.location.replace(HOME_PATH); }
+  })();
+
+  // The story is NOT stored in this page. It is loaded from the database
+  // only after the correct word is entered (see the gate handler). So
+  // "view source" / inspect on this page reveals no story text.
+  let BOOK = [];
+  const PREVIEW_BOOK = [
+    {t:'title', title:'THE SUMMER I FOUND HOME', ded:'For you, and only you.', epi:'(preview mode — on the live site the real book loads from the database)'},
+    {t:'note', title:'Preview', blocks:[{t:'p',text:'This is preview mode. On the live site every page is loaded from the database only after the correct word is entered, so this page contains no story text.'}]},
+    {t:'ballet', cap:'for the girl who speaks in ballet'},
+    {t:'quote', text:'Maybe, in another life.'}
+  ];
+
+  function heartSVG(color){return `<svg viewBox="0 0 24 24" fill="${color}" style="width:100%;height:100%"><path d="M12 21s-8-4.6-8-10a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 11c0 5.4-8 10-8 10z"/></svg>`;}
+  function nodeFor(block){
+    const w=document.createElement('div');
+    if(block.t==='title'){
+      w.className='p-title-main';
+      w.innerHTML=`<div class="tt fell">${block.title}</div><div class="ded">${block.ded}</div><div class="epi">${block.epi}</div>`;
+    } else if(block.t==='chapter-head'){
+      w.innerHTML=`<div class="p-chapter-num">Chapter ${block.num}</div><div class="p-chapter-title">${block.title}</div><div class="p-chapter-rule"></div>`;
+    } else if(block.t==='note-head'){
+      w.innerHTML=`<div class="p-chapter-title" style="font-style:italic;font-size:clamp(1.3rem,4.6vw,1.7rem)">${block.title}</div><div class="p-chapter-rule"></div>`;
+    } else if(block.t==='p'){
+      w.className='p-text'+(block.first?' first':'');
+      w.textContent=block.text;
+    } else if(block.t==='quote'){
+      w.className='p-quote';
+      w.innerHTML=`<div class="q">${block.text}</div><div class="orn">✦ ✦ ✦</div>`;
+    } else if(block.t==='photo'){
+      w.className='photo';
+      w.innerHTML=`<div class="frame"><img src="${block.url}" alt="" loading="lazy"/></div>${block.cap?`<div class="cap">${block.cap}</div>`:''}`;
+    } else if(block.t==='ballet'){
+      w.className='interlude';
+      w.innerHTML=`<div class="ballerina"><svg viewBox="0 0 100 150" fill="none"><g class="spin"><ellipse cx="50" cy="92" rx="30" ry="12" fill="#d98aa9" opacity=".85"/><path d="M50 92 L34 96 L50 100 L66 96 Z" fill="#c06a8b"/><circle cx="50" cy="30" r="9" fill="#40352a"/><path d="M50 39 C46 55 46 70 50 90 C54 70 54 55 50 39Z" fill="#40352a"/><path d="M50 46 C40 50 33 44 30 38" stroke="#40352a" stroke-width="3" stroke-linecap="round"/><path d="M50 46 C60 50 68 42 72 34" stroke="#40352a" stroke-width="3" stroke-linecap="round"/><path d="M50 90 C46 108 44 122 40 138" stroke="#40352a" stroke-width="3.4" stroke-linecap="round"/><path d="M50 90 C54 106 58 118 66 128" stroke="#40352a" stroke-width="3.4" stroke-linecap="round"/></g></svg></div><div class="cap">${block.cap||''}</div>`;
+    } else if(block.t==='plane'){
+      w.className='interlude';
+      w.innerHTML=`
+        <div class="planescene">
+          <div class="cloud" style="width:60px;height:24px;top:18%;left:12%"></div>
+          <div class="cloud" style="width:80px;height:28px;top:30%;left:60%"></div>
+          <div class="cloud" style="width:46px;height:18px;top:12%;left:78%"></div>
+          <svg class="plane" viewBox="0 0 64 64" fill="currentColor"><path d="M2 34l60-14-14 24-10-6-8 10-4-10z"/></svg>
+          <div class="heart-air">${heartSVG('#bd6486')}</div>
+          <svg class="couple" viewBox="0 0 120 70" fill="currentColor">
+            <circle cx="44" cy="16" r="8"/><path d="M36 30c0-6 16-6 16 0v34H36z"/>
+            <circle cx="78" cy="16" r="8"/><path d="M70 30c0-6 16-6 16 0v34H70z"/>
+            <path d="M52 40c4-3 12-3 16 0" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="cap">${block.cap||''}</div>`;
+    }
+    return w;
+  }
+
+  const flat=[]; const toc=[];
+  function buildFlat(){
+    flat.length=0;
+    BOOK.forEach(sec=>{
+      if(sec.t==='chapter'){
+        flat.push({t:'chapter-head',num:sec.num,title:sec.title,_tocTitle:sec.title});
+        sec.blocks.forEach((b,i)=>flat.push(i===0?{...b,first:true}:b));
+      } else if(sec.t==='note'){
+        flat.push({t:'note-head',title:sec.title,_tocTitle:sec.title});
+        sec.blocks.forEach((b,i)=>flat.push(i===0?{...b,first:true}:b));
+      } else {
+        if(sec.t==='title'){ sec._tocTitle='Title page'; }
+        flat.push(sec);
+      }
+    });
+  }
+
+  const measureInner=$('#measureInner');
+  const staticInner=$('#staticInner'), staticNum=$('#staticNum');
+  let pages=[];
+  function syncMeasureSize(){ const r=staticInner.getBoundingClientRect(); measureInner.style.width=r.width+'px'; measureInner.style.height=r.height+'px'; }
+  function fits(blocks){ measureInner.innerHTML=''; blocks.forEach(b=>measureInner.appendChild(nodeFor(b))); return measureInner.scrollHeight <= measureInner.clientHeight+1; }
+  const soloTypes=new Set(['title','quote','photo','ballet','plane']);
+  function paginate(){
+    syncMeasureSize(); pages=[]; let cur=[];
+    for(const b of flat){
+      if(soloTypes.has(b.t)){ if(cur.length){pages.push(cur);cur=[];} pages.push([b]); continue; }
+      if(b.t==='chapter-head'||b.t==='note-head'){ if(cur.length){pages.push(cur);cur=[];} cur=[b]; continue; }
+      const test=cur.concat([b]);
+      if(fits(test)){ cur=test; } else { if(cur.length) pages.push(cur); cur=[b]; }
+    }
+    if(cur.length) pages.push(cur);
+    toc.length=0; pages.forEach((pg,i)=>{ const head=pg.find(x=>x._tocTitle); if(head) toc.push({title:head._tocTitle,page:i}); });
+    buildContents();
+  }
+  function renderPageInto(innerEl,numEl,idx){ innerEl.innerHTML=''; (pages[idx]||[]).forEach(b=>innerEl.appendChild(nodeFor(b))); if(numEl) numEl.textContent = idx>0 ? String(idx) : ''; }
+
+  let current=0, turning=false;
+  const frame=$('#bookFrame');
+  function updateChrome(){ $('#progFill').style.width=((current/Math.max(1,pages.length-1))*100)+'%'; }
+  function turn(idx,dir){
+    if(turning||idx<0||idx>=pages.length||idx===current) return;
+    turning=true;
+    const leaf=document.createElement('div'); leaf.className='page leaf';
+    const li=document.createElement('div'); li.className='page-inner';
+    const ln=document.createElement('div'); ln.className='page-num';
+    const sh=document.createElement('div'); sh.className='lshade';
+    leaf.appendChild(li); leaf.appendChild(ln); leaf.appendChild(sh);
+    if(dir==='next'){
+      renderPageInto(li,ln,current); renderPageInto(staticInner,staticNum,idx);
+      frame.insertBefore(leaf,$('#tapPrev'));
+      requestAnimationFrame(()=>requestAnimationFrame(()=>leaf.classList.add('flip-next')));
+    } else {
+      renderPageInto(li,ln,idx); leaf.classList.add('pre-prev');
+      frame.insertBefore(leaf,$('#tapPrev'));
+      requestAnimationFrame(()=>requestAnimationFrame(()=>{leaf.classList.remove('pre-prev');leaf.classList.add('flip-prev');}));
+    }
+    leaf.addEventListener('transitionend',()=>{ renderPageInto(staticInner,staticNum,idx); leaf.remove(); turning=false; },{once:true});
+    current=idx; updateChrome();
+  }
+  const next=()=>turn(current+1,'next');
+  const prev=()=>turn(current-1,'prev');
+  $('#tapNext').addEventListener('click',next);
+  $('#tapPrev').addEventListener('click',prev);
+  document.addEventListener('keydown',e=>{if($('#book').classList.contains('hidden'))return;if(e.key==='ArrowRight')next();if(e.key==='ArrowLeft')prev();});
+  let sx=0;
+  frame.addEventListener('touchstart',e=>sx=e.touches[0].clientX,{passive:true});
+  frame.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>45){dx<0?next():prev();}},{passive:true});
+  function jumpTo(idx){ if(idx===current)return; current=Math.max(0,Math.min(idx,pages.length-1)); renderPageInto(staticInner,staticNum,current); updateChrome(); }
+
+  function buildContents(){
+    const list=$('#contentsList'); list.innerHTML='';
+    toc.forEach(t=>{ const a=document.createElement('a'); a.textContent=t.title; a.href='#'; a.addEventListener('click',e=>{e.preventDefault();$('#contents').classList.remove('show');jumpTo(t.page);}); list.appendChild(a); });
+  }
+  $('#idxBtn').addEventListener('click',()=>$('#contents').classList.add('show'));
+  $('#contentsClose').addEventListener('click',()=>$('#contents').classList.remove('show'));
+  let rT; window.addEventListener('resize',()=>{clearTimeout(rT);rT=setTimeout(()=>{const keep=current;paginate();current=Math.min(keep,pages.length-1);renderPageInto(staticInner,staticNum,current);updateChrome();},250);});
+
+  $('#keyhole').addEventListener('click',()=>{ $('#keyWrap').classList.add('show'); setTimeout(()=>$('#keyInput').focus(),120); });
+  $('#keyWrap').addEventListener('submit',async(e)=>{
+    e.preventDefault();
+    const attempt=$('#keyInput').value.trim(); const msg=$('#keyMsg');
+    if(!attempt){msg.textContent='…';msg.classList.add('show');return;}
+    if(PREVIEW_MODE){ BOOK=PREVIEW_BOOK; openReunion(); return; }
+    msg.textContent=''; msg.classList.remove('show');
+    const {data,error}=await sb.rpc('love_unlock',{attempt});
+    if(error||!data){ msg.textContent='not our word'; msg.classList.add('show'); return; }
+    BOOK = (data||[]).filter(r=>r.room_slug==='book').sort((a,b)=>(a.sort_order||0)-(b.sort_order||0)).map(r=>r.payload);
+    if(!BOOK.length){ msg.textContent='the book is not ready yet'; msg.classList.add('show'); return; }
+    openReunion();
+  });
+  function openReunion(){
+    startMusic();
+    $('#gate').classList.add('fade-out');
+    setTimeout(()=>{ $('#gate').classList.add('hidden'); $('#reunion').classList.remove('hidden'); $('#reunion').classList.add('fade-in'); },700);
+  }
+  function goDiary(){
+    $('#reunion').classList.add('fade-out');
+    setTimeout(()=>{ $('#reunion').classList.add('hidden'); $('#diary').classList.remove('hidden'); $('#diary').classList.add('fade-in'); },700);
+  }
+  $('#reunion').addEventListener('click',()=>{ if(!$('#reunion').classList.contains('hidden')) goDiary(); });
+  setTimeout(()=>{ if(!$('#reunion').classList.contains('hidden')) goDiary(); }, 12000);
+
+  function openBook(){
+    $('#diary').classList.add('open');
+    setTimeout(()=>{
+      $('#diary').classList.add('fade-out');
+      setTimeout(()=>{
+        $('#diary').classList.add('hidden');
+        $('#book').classList.remove('hidden'); $('#book').classList.add('fade-in');
+        (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(()=>{
+          buildFlat(); paginate(); renderPageInto(staticInner,staticNum,0); current=0; updateChrome();
+          const hint=document.createElement('div'); hint.className='navhint'; hint.textContent='tap the pages to turn ›';
+          frame.appendChild(hint); setTimeout(()=>hint.remove(),4200);
+        });
+      },700);
+    },2400);
+  }
+  $('#diary').addEventListener('click',()=>{ if(!$('#diary').classList.contains('open')) openBook(); });
+
+  let ytPlayer=null, ytReady=false, musicOn=true, musicWanted=false;
+  const tag=document.createElement('script'); tag.src="https://www.youtube.com/iframe_api"; document.head.appendChild(tag);
+  window.onYouTubeIframeAPIReady=function(){
+    ytPlayer=new YT.Player('yt',{ videoId:YT_VIDEO_ID,
+      playerVars:{autoplay:0,controls:0,loop:1,playlist:YT_VIDEO_ID,modestbranding:1,playsinline:1,rel:0},
+      events:{onReady:()=>{ytReady=true; if(musicWanted) doPlay();}} });
+  };
+  function doPlay(){ try{ytPlayer.unMute();ytPlayer.setVolume(45);ytPlayer.playVideo();}catch(e){} }
+  function startMusic(){ musicWanted=true; if(ytReady) doPlay(); }
+  $('#musicBtn').addEventListener('click',()=>{
+    musicOn=!musicOn;
+    try{ if(musicOn){ytPlayer.unMute();ytPlayer.playVideo();}else{ytPlayer.pauseVideo();} }catch(e){}
+    $('#musicBtn').style.opacity=musicOn?'1':'.5';
+  });
+  </script>
+</body>
+</html>
