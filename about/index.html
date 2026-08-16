@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About — Tyler Nicholas</title>
+<meta name="description" content="About Tyler Nicholas — writer, storyteller, and youth leader from Seychelles." />
+<link rel="icon" href="https://i.ibb.co/GQf0hjq1/Tyler-Nicholas-Books-removebg-preview.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --paper:#ffffff; --paper-2:#f4f3ef; --paper-3:#eceae4;
+    --ink:#131313; --ink-2:#2c2c2c; --grey:#6d6d6a;
+    --line:rgba(19,19,19,.14); --line-2:rgba(19,19,19,.30);
+    --pink:#c9628a;
+    --shadow-sm:0 2px 4px rgba(0,0,0,.04),0 16px 34px -20px rgba(0,0,0,.34);
+    --shadow:0 34px 64px -30px rgba(0,0,0,.42);
+    --maxw:1120px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{font-family:"EB Garamond",Georgia,serif;color:var(--ink);background:var(--paper);line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .disp{font-family:"Fraunces",Georgia,serif}
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}
+  :focus-visible{outline:2px solid var(--ink);outline-offset:3px;border-radius:3px}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding-inline:22px}
+  .eyebrow{font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--grey)}
+
+  /* loader */
+  #loader{position:fixed;inset:0;z-index:2000;background:var(--paper);display:grid;place-items:center;transition:opacity .6s ease,visibility .6s}
+  #loader.hide{opacity:0;visibility:hidden}
+  #loader .box{display:flex;flex-direction:column;align-items:center;gap:20px}
+  #loader img{height:80px;width:auto;animation:ldFade 1.8s ease-in-out infinite}
+  #loader .ln{width:120px;height:1px;background:var(--line);position:relative;overflow:hidden}
+  #loader .ln::after{content:"";position:absolute;left:-40%;top:0;height:100%;width:40%;background:var(--ink);animation:ldSlide 1.3s ease-in-out infinite}
+  @keyframes ldFade{0%,100%{opacity:.55}50%{opacity:1}}
+  @keyframes ldSlide{0%{left:-40%}100%{left:120%}}
+
+  /* nav */
+  header.site{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .announce{background:var(--ink);color:#fff;text-align:center;font-size:.9rem;padding:9px 16px;display:none}
+  .announce.show{display:block}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:74px}
+  .brand img{height:42px;width:auto}
+  .nav-links{display:flex;gap:30px;align-items:center}
+  .nav-links a{font-size:.96rem;color:var(--ink-2);padding:6px 0;border-bottom:1.5px solid transparent;transition:color .2s,border-color .2s}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-links a.active{color:var(--ink);border-color:var(--ink)}
+  .hamb{display:none;width:44px;height:44px;place-items:center}
+  .hamb svg{width:24px;height:24px}
+  @media(max-width:760px){
+    .hamb{display:grid}
+    .nav-links{position:fixed;inset:74px 0 auto 0;flex-direction:column;gap:0;background:var(--paper);border-bottom:1px solid var(--line);transform:translateY(-8px);opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;padding:8px 0 14px}
+    .nav-links.open{opacity:1;transform:none;pointer-events:auto}
+    .nav-links a{width:100%;text-align:center;padding:15px 0;border-bottom:1px solid var(--line)}
+    .nav-links a.active{border-color:var(--line)}
+  }
+
+  /* buttons */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-size:1rem;padding:13px 28px;border-radius:2px;background:var(--ink);color:#fff;border:1px solid var(--ink);transition:opacity .2s,transform .08s}
+  .btn:hover{opacity:.85}
+  .btn:active{transform:translateY(1px)}
+  .btn.ghost{background:transparent;color:var(--ink)}
+  .btn.ghost:hover{background:var(--ink);color:#fff;opacity:1}
+
+  section{padding-block:clamp(52px,8vh,92px)}
+  .sec-head{text-align:center;margin-bottom:44px}
+  .sec-head h2{font-family:"Fraunces",serif;font-weight:500;font-size:clamp(1.9rem,4.6vw,2.7rem);margin-top:10px;letter-spacing:-.01em}
+  .sec-head p{color:var(--grey);max-width:56ch;margin:14px auto 0}
+
+  /* about hero */
+  .about-hero{text-align:center;padding-top:clamp(48px,8vh,90px)}
+  .about-hero .portrait{width:132px;height:132px;border-radius:50%;object-fit:cover;margin:0 auto 24px;box-shadow:var(--shadow-sm)}
+  .about-hero h1{font-family:"Fraunces",serif;font-weight:500;font-size:clamp(2.2rem,6vw,3.4rem);margin-top:10px}
+  .about-body{max-width:660px;margin:26px auto 0;text-align:left}
+  .about-body p{font-size:1.1rem;color:var(--ink-2);margin-top:16px}
+  .pullquote{text-align:center;font-family:"Fraunces",serif;font-style:italic;font-size:clamp(1.3rem,3.4vw,1.8rem);color:var(--ink);max-width:26ch;margin:40px auto 0;line-height:1.4}
+
+  /* ventures */
+  .ventures{background:var(--paper-2);border-block:1px solid var(--line)}
+  .vgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;max-width:920px;margin:0 auto}
+  .vcard{display:block;background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:24px;transition:transform .2s,box-shadow .2s}
+  .vcard:hover{transform:translateY(-4px);box-shadow:var(--shadow-sm)}
+  .vcard h4{font-family:"Fraunces",serif;font-weight:500;font-size:1.2rem}
+  .vcard p{color:var(--grey);font-size:.95rem;margin-top:8px}
+  .vcard .go{margin-top:14px;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink)}
+
+  /* teaser */
+  .teaser{max-width:640px;margin:0 auto;text-align:center}
+  .teaser p{font-size:1.14rem;color:var(--ink-2);margin-top:12px}
+  .teaser .cta{margin-top:26px}
+
+  /* footer */
+  footer.site{background:var(--ink);color:#c9c7c0;padding:52px 0 28px}
+  footer.site .fwrap{max-width:var(--maxw);margin:0 auto;padding-inline:22px}
+  footer.site .ftop{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:center;padding-bottom:26px;border-bottom:1px solid rgba(255,255,255,.14)}
+  footer.site .flogo{height:40px;filter:invert(1) brightness(1.7)}
+  footer.site .flinks{display:flex;gap:22px;flex-wrap:wrap}
+  footer.site .flinks a{font-size:.95rem;color:#c9c7c0;transition:color .2s}
+  footer.site .flinks a:hover{color:#fff}
+  footer.site .copy{text-align:center;padding-top:22px;font-size:.84rem;color:#8c8a83}
+  @media(max-width:560px){footer.site .ftop{flex-direction:column;text-align:center;gap:18px}footer.site .flinks{justify-content:center}}
+
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}#loader img{opacity:1}}
+</style>
+</head>
+<body>
+  <div id="loader"><div class="box"><img src="https://i.ibb.co/GQf0hjq1/Tyler-Nicholas-Books-removebg-preview.png" alt="Tyler Nicholas Books" /><div class="ln"></div></div></div>
+
+  <header class="site">
+    <div class="announce" id="announce"></div>
+    <div class="wrap nav">
+      <a class="brand" href="/" aria-label="Tyler Nicholas Books — home"><img src="https://i.ibb.co/GQf0hjq1/Tyler-Nicholas-Books-removebg-preview.png" alt="Tyler Nicholas Books" /></a>
+      <button class="hamb" id="hamb" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      <nav class="nav-links" id="navLinks">
+        <a href="/">Home</a>
+        <a href="/books/">Books</a>
+        <a href="/about/" class="active">About</a>
+        <a href="/contact/">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="wrap about-hero reveal">
+        <img class="portrait" id="portrait" alt="Tyler Nicholas" style="display:none" />
+        <span class="eyebrow">About the author</span>
+        <h1 class="disp">Tyler Nicholas</h1>
+        <div class="about-body">
+          <p id="aboutBody">Tyler Nicholas is a young Seychellois writer, developer, and youth leader. He writes about the quiet, ordinary moments that turn out to matter most, and about what it means to carry a place, or a person, with you long after you have left them behind.</p>
+          <p>His writing is drawn from real life: travel, distance, belonging, and the people who change us when we are not expecting to be changed. He believes the smallest details, a box handed over in an airport, a biscuit given away, a hand held for the first time, are often where the truest stories live.</p>
+          <p>He came to writing the way many people do: with something he did not want to forget. What began as a way of holding on to a single summer became a belief that ordinary lives deserve to be written down, and that memory, once it is put into words, becomes a place you can always return to.</p>
+          <p>Alongside his writing, Tyler leads a number of initiatives across Seychelles, spanning public service and youth advocacy, community work, and technology.</p>
+        </div>
+        <p class="pullquote">Some dates are only dates, until someone gives them meaning.</p>
+      </div>
+    </section>
+
+    <section class="ventures">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <span class="eyebrow">Beyond the page</span>
+          <h2 class="disp">Also from Tyler Nicholas</h2>
+          <p>The offices and organisations Tyler leads across Seychelles.</p>
+        </div>
+        <div class="vgrid reveal">
+          <a class="vcard" href="https://nicholasoffice.online" target="_blank" rel="noopener">
+            <h4 class="disp">Office of Tyler Nicholas</h4>
+            <p>Public service, youth advocacy, and community initiatives.</p>
+            <div class="go">Visit →</div>
+          </a>
+          <a class="vcard" href="https://tylernicholasgroup.com" target="_blank" rel="noopener">
+            <h4 class="disp">Tyler Nicholas Group</h4>
+            <p>Ventures, technology, and enterprise.</p>
+            <div class="go">Visit →</div>
+          </a>
+          <a class="vcard" href="https://tyler-nicholas-foundation.online" target="_blank" rel="noopener">
+            <h4 class="disp">Tyler Nicholas Foundation</h4>
+            <p>Non-profit programmes serving communities.</p>
+            <div class="go">Visit →</div>
+          </a>
+          <a class="vcard" href="https://foodshare-seychelles.online" target="_blank" rel="noopener">
+            <h4 class="disp">FoodShare Seychelles</h4>
+            <p>Reducing food insecurity and waste across the islands.</p>
+            <div class="go">Visit →</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap teaser reveal">
+        <span class="eyebrow">Read</span>
+        <p>Every book Tyler has made public lives on one shelf.</p>
+        <div class="cta"><a href="/books/" class="btn">Browse the collection</a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site">
+    <div class="fwrap">
+      <div class="ftop">
+        <a href="/"><img class="flogo" src="https://i.ibb.co/GQf0hjq1/Tyler-Nicholas-Books-removebg-preview.png" alt="Tyler Nicholas Books" /></a>
+        <div class="flinks"><a href="/">Home</a><a href="/books/">Books</a><a href="/about/">About</a><a href="/contact/">Contact</a></div>
+      </div>
+      <div class="copy">© <span id="year"></span> Tyler Nicholas Books. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    const SUPABASE_URL="https://lanrakgrrbyfhtzcxnof.supabase.co";
+    const SUPABASE_ANON="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxhbnJha2dycmJ5Zmh0emN4bm9mIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODU2NzQwMTQsImV4cCI6MjEwMTI1MDAxNH0.gHaVFXo5vRjcOTlwHRaNNOP1WXqL_4h3ieWg6xnz3hY";
+    const sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON);
+    const $=(s,r=document)=>r.querySelector(s);
+    $('#year').textContent=new Date().getFullYear();
+
+    const hamb=$('#hamb'),links=$('#navLinks');
+    hamb.addEventListener('click',()=>{const o=links.classList.toggle('open');hamb.setAttribute('aria-expanded',o);});
+    function hideLoader(){const l=$('#loader');if(l){l.classList.add('hide');setTimeout(()=>l.remove(),650);}}
+    window.addEventListener('load',()=>setTimeout(hideLoader,400)); setTimeout(hideLoader,6000);
+
+    (async function init(){
+      let s=null;
+      try{ const r=await sb.from('tnb_settings').select('*').eq('id',1).maybeSingle(); s=r.data; }catch(e){}
+      if(s){
+        if(s.about_text) $('#aboutBody').textContent=s.about_text;
+        if(s.portrait_url){ const p=$('#portrait'); p.src=s.portrait_url; p.style.display='block'; }
+        if(s.announcement_active&&s.announcement_text){const a=$('#announce');a.textContent=s.announcement_text;a.classList.add('show');}
+      }
+      const io=new IntersectionObserver(en=>en.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}}),{threshold:.12});
+      document.querySelectorAll('.reveal').forEach(r=>io.observe(r));
+    })();
+  </script>
+</body>
+</html>
