@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Books — Tyler Nicholas</title>
+<meta name="description" content="The complete collection of books by Tyler Nicholas." />
+<link rel="icon" href="https://i.ibb.co/GQf0hjq1/Tyler-Nicholas-Books-removebg-preview.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --paper:#ffffff; --paper-2:#f4f3ef; --paper-3:#eceae4;
+    --ink:#131313; --ink-2:#2c2c2c; --grey:#6d6d6a;
+    --line:rgba(19,19,19,.14); --line-2:rgba(19,19,19,.30);
+    --pink:#c9628a;
+    --shadow-sm:0 2px 4px rgba(0,0,0,.04),0 16px 34px -20px rgba(0,0,0,.34);
+    --shadow:0 34px 64px -30px rgba(0,0,0,.42);
+    --maxw:1120px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{font-family:"EB Garamond",Georgia,serif;color:var(--ink);background:var(--paper);line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .disp{font-family:"Fraunces",Georgia,serif}
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}
+  :focus-visible{outline:2px solid var(--ink);outline-offset:3px;border-radius:3px}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding-inline:22px}
+  .eyebrow{font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--grey)}
+  .center{text-align:center}
+
+  /* loader */
+  #loader{position:fixed;inset:0;z-index:2000;background:var(--paper);display:grid;place-items:center;transition:opacity .6s ease,visibility .6s}
+  #loader.hide{opacity:0;visibility:hidden}
+  #loader .box{display:flex;flex-direction:column;align-items:center;gap:20px}
+  #loader img{height:80px;width:auto;animation:ldFade 1.8s ease-in-out infinite}
+  #loader .ln{width:120px;height:1px;background:var(--line);position:relative;overflow:hidden}
+  #loader .ln::after{content:"";position:absolute;left:-40%;top:0;height:100%;width:40%;background:var(--ink);animation:ldSlide 1.3s ease-in-out infinite}
+  @keyframes ldFade{0%,100%{opacity:.55}50%{opacity:1}}
+  @keyframes ldSlide{0%{left:-40%}100%{left:120%}}
+
+  /* nav */
+  header.site{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .announce{background:var(--ink);color:#fff;text-align:center;font-size:.9rem;padding:9px 16px;display:none}
+  .announce.show{display:block}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:74px}
+  .brand img{height:42px;width:auto}
+  .nav-links{display:flex;gap:30px;align-items:center}
+  .nav-links a{font-size:.96rem;color:var(--ink-2);padding:6px 0;border-bottom:1.5px solid transparent;transition:color .2s,border-color .2s}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-links a.active{color:var(--ink);border-color:var(--ink)}
+  .hamb{display:none;width:44px;height:44px;place-items:center}
+  .hamb svg{width:24px;height:24px}
+  @media(max-width:760px){
+    .hamb{display:grid}
+    .nav-links{position:fixed;inset:74px 0 auto 0;flex-direction:column;gap:0;background:var(--paper);border-bottom:1px solid var(--line);transform:translateY(-8px);opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;padding:8px 0 14px}
+    .nav-links.open{opacity:1;transform:none;pointer-events:auto}
+    .nav-links a{width:100%;text-align:center;padding:15px 0;border-bottom:1px solid var(--line)}
+    .nav-links a.active{border-color:var(--line)}
+  }
+
+  /* buttons */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-size:1rem;padding:13px 28px;border-radius:2px;background:var(--ink);color:#fff;border:1px solid var(--ink);transition:opacity .2s,transform .08s}
+  .btn:hover{opacity:.85}
+  .btn:active{transform:translateY(1px)}
+  .btn.ghost{background:transparent;color:var(--ink)}
+  .btn.ghost:hover{background:var(--ink);color:#fff;opacity:1}
+
+  /* shelf header */
+  .shelf-head{text-align:center;padding-top:clamp(48px,8vh,88px)}
+  .shelf-head h1{font-family:"Fraunces",serif;font-weight:500;font-size:clamp(2.2rem,6vw,3.4rem);margin-top:10px}
+  .shelf-head p{color:var(--grey);max-width:52ch;margin:12px auto 0}
+  .filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:30px 0 6px}
+  .filter{font-size:.9rem;letter-spacing:.04em;padding:8px 16px;border:1px solid var(--line-2);border-radius:2px;color:var(--ink-2);transition:.2s}
+  .filter.on,.filter:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+  #count{text-align:center;color:var(--grey);font-size:.86rem;margin:8px 0 30px}
+
+  /* covers + grid */
+  .cover{position:relative;aspect-ratio:2/3;width:100%;border-radius:2px;overflow:hidden;background:var(--paper-3);box-shadow:var(--shadow-sm)}
+  .cover img{width:100%;height:100%;object-fit:cover}
+  .cover.ph{display:grid;place-items:center;padding:20px;text-align:center;background:linear-gradient(155deg,#1c1c1c,#000);color:#f3f1ec}
+  .cover.ph.priv{background:linear-gradient(155deg,#7a3255,#3f1b2e)}
+  .cover.ph .ph-t{font-family:"Fraunces",serif;font-size:1.25rem;line-height:1.2}
+  .cover.ph::before{content:"";position:absolute;left:9px;top:8px;bottom:8px;width:2px;background:rgba(255,255,255,.16)}
+  .chip{position:absolute;top:10px;right:10px;background:rgba(0,0,0,.72);color:#fff;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;padding:5px 9px;border-radius:2px;display:flex;align-items:center;gap:5px}
+  .chip.pink{background:var(--pink)}
+  .chip svg{width:11px;height:11px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:clamp(20px,4vw,38px)}
+  .book{display:flex;flex-direction:column;gap:12px;transition:transform .2s}
+  .book:hover{transform:translateY(-5px)}
+  .book:hover .cover{box-shadow:var(--shadow)}
+  .book .bt{font-family:"Fraunces",serif;font-size:1.1rem;line-height:1.22}
+  .book .meta{font-size:.85rem;color:var(--grey);display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  .badge{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);border:1px solid var(--line-2);padding:2px 8px;border-radius:2px}
+  .badge.pink{color:var(--pink);border-color:var(--pink)}
+  .empty{grid-column:1/-1;text-align:center;color:var(--grey);font-style:italic;padding:44px}
+
+  /* footer */
+  footer.site{background:var(--ink);color:#c9c7c0;padding:52px 0 28px;margin-top:24px}
+  footer.site .fwrap{max-width:var(--maxw);margin:0 auto;padding-inline:22px}
+  footer.site .ftop{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:center;padding-bottom:26px;border-bottom:1px solid rgba(255,255,255,.14)}
+  footer.site .flogo{height:40px;filter:invert(1) brightness(1.7)}
+  footer.site .flinks{display:flex;gap:22px;flex-wrap:wrap}
+  footer.site .flinks a{font-size:.95rem;color:#c9c7c0;transition:color .2s}
+  footer.site .flinks a:hover{color:#fff}
+  footer.site .copy{text-align:center;padding-top:22px;font-size:.84rem;color:#8c8a83}
+  @media(max-width:560px){footer.site .ftop{flex-direction:column;text-align:center;gap:18px}footer.site .flinks{justify-content:center}}
+
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}#loader img{opacity:1}}
+</style>
+</head>
+<body>
+  <div id="loader"><div class="box"><img src="https://i.ibb.co/GQf0hjq1/Tyler-Nicholas-Books-removebg-preview.png" alt="Tyler Nicholas Books" /><div class="ln"></div></div></div>
+
+  <header class="site">
+    <div class="announce" id="announce"></div>
+    <div class="wrap nav">
+      <a class="brand" href="/" aria-label="Tyler Nicholas Books — home"><img src="https://i.ibb.co/GQf0hjq1/Tyler-Nicholas-Books-removebg-preview.png" alt="Tyler Nicholas Books" /></a>
+      <button class="hamb" id="hamb" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      <nav class="nav-links" id="navLinks">
+        <a href="/">Home</a>
+        <a href="/books/" class="active">Books</a>
+        <a href="/about/">About</a>
+        <a href="/contact/">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section style="padding-bottom:0">
+      <div class="wrap shelf-head">
+        <span class="eyebrow">The collection</span>
+        <h1 class="disp">Books</h1>
+        <p>Everything Tyler has written and made public, in one place. Free reads, titles for sale, and one that is kept private.</p>
+        <div class="filters">
+          <button class="filter on" data-f="all">All</button>
+          <button class="filter" data-f="free">Free</button>
+          <button class="filter" data-f="paid">For sale</button>
+          <button class="filter" data-f="private">Private</button>
+        </div>
+        <div id="count"></div>
+      </div>
+    </section>
+
+    <section style="padding-top:10px">
+      <div class="wrap">
+        <div class="grid" id="shelf"><div class="empty">Opening the shelf…</div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site">
+    <div class="fwrap">
+      <div class="ftop">
+        <a href="/"><img class="flogo" src="https://i.ibb.co/GQf0hjq1/Tyler-Nicholas-Books-removebg-preview.png" alt="Tyler Nicholas Books" /></a>
+        <div class="flinks">
+          <a href="/">Home</a><a href="/books/">Books</a><a href="/about/">About</a><a href="/contact/">Contact</a>
+        </div>
+      </div>
+      <div class="copy">© <span id="year"></span> Tyler Nicholas Books. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    const SUPABASE_URL="https://lanrakgrrbyfhtzcxnof.supabase.co";
+    const SUPABASE_ANON="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxhbnJha2dycmJ5Zmh0emN4bm9mIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODU2NzQwMTQsImV4cCI6MjEwMTI1MDAxNH0.gHaVFXo5vRjcOTlwHRaNNOP1WXqL_4h3ieWg6xnz3hY";
+    const sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON);
+    const $=(s,r=document)=>r.querySelector(s);
+    const $$=(s,r=document)=>Array.from(r.querySelectorAll(s));
+    const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+    const money=b=>new Intl.NumberFormat(undefined,{style:'currency',currency:b.currency||'USD'}).format(b.price||0);
+    $('#year').textContent=new Date().getFullYear();
+
+    const lockSVG='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>';
+    const isPriv=b=>b.type==='private';
+    const detailHref=b=>`/book/?slug=${encodeURIComponent(b.slug)}`;
+    function badge(b){ if(b.type==='private')return `<span class="badge pink">Private</span>`; if(b.type==='paid')return `<span class="badge">${money(b)}</span>`; return `<span class="badge">Free</span>`; }
+    function coverEl(b){ const chip=isPriv(b)?`<span class="chip pink">${lockSVG} Private</span>`:''; if(b.cover_url)return `<div class="cover">${chip}<img src="${esc(b.cover_url)}" alt="${esc(b.title)} cover" loading="lazy"/></div>`; return `<div class="cover ph${isPriv(b)?' priv':''}">${chip}<div class="ph-t">${esc(b.title)}</div></div>`; }
+    function bookCard(b){ return `<a class="book" href="${detailHref(b)}">${coverEl(b)}<div class="bt">${esc(b.title)}</div><div class="meta">${badge(b)}${b.subtitle?`<span>${esc(b.subtitle)}</span>`:''}</div></a>`; }
+
+    const hamb=$('#hamb'),links=$('#navLinks');
+    hamb.addEventListener('click',()=>{const o=links.classList.toggle('open');hamb.setAttribute('aria-expanded',o);});
+    function hideLoader(){const l=$('#loader');if(l){l.classList.add('hide');setTimeout(()=>l.remove(),650);}}
+    window.addEventListener('load',()=>setTimeout(hideLoader,400)); setTimeout(hideLoader,6000);
+
+    const SAMPLE=[{slug:'the-summer-i-found-home',title:'The Summer I Found Home',subtitle:'A private memoir',type:'private',cover_url:null}];
+
+    (async function init(){
+      let settings=null, books=[];
+      try{
+        const s=await sb.from('tnb_settings').select('*').eq('id',1).maybeSingle(); settings=s.data;
+        const r=await sb.from('tnb_books').select('*').eq('status','published').order('sort_order',{ascending:true}); books=r.data||[];
+      }catch(e){}
+      if(!books.length) books=SAMPLE;
+      if(settings&&settings.announcement_active&&settings.announcement_text){const a=$('#announce');a.textContent=settings.announcement_text;a.classList.add('show');}
+
+      const grid=$('#shelf'), count=$('#count');
+      function draw(filter){
+        const list = filter==='all' ? books : books.filter(b=>b.type===filter);
+        grid.innerHTML = list.length ? list.map(bookCard).join('') : `<div class="empty">Nothing here yet.</div>`;
+        count.textContent = `${list.length} ${list.length===1?'title':'titles'}`;
+        const io=new IntersectionObserver(en=>en.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}}),{threshold:.12});
+        $$('.reveal').forEach(r=>io.observe(r));
+      }
+      $$('.filter').forEach(btn=>btn.addEventListener('click',()=>{ $$('.filter').forEach(x=>x.classList.remove('on')); btn.classList.add('on'); draw(btn.dataset.f); }));
+      draw('all');
+    })();
+  </script>
+</body>
+</html>
