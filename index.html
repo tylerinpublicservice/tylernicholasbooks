@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Tyler Nicholas Books</title>
+<title>Tyler Nicholas — Books</title>
 <meta name="description" content="The written work of Tyler Nicholas. Writer, storyteller, Seychelles." />
 <link rel="icon" href="https://i.ibb.co/GQf0hjq1/Tyler-Nicholas-Books-removebg-preview.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -246,17 +246,12 @@
     function hideLoader(){const l=$('#loader');if(l){l.classList.add('hide');setTimeout(()=>l.remove(),650);}}
     window.addEventListener('load',()=>setTimeout(hideLoader,400)); setTimeout(hideLoader,6000);
 
-    const SAMPLE=[{slug:'the-summer-i-found-home',title:'The Summer I Found Home',subtitle:'A private memoir',
-      description:'A private memoir, written for someone who already knows why. This one is not for sale and not for everyone. It opens only for the person it was written for.',
-      type:'private',cover_url:null,is_featured:true}];
-
     (async function init(){
       let settings=null, books=[];
       try{
         const s=await sb.from('tnb_settings').select('*').eq('id',1).maybeSingle(); settings=s.data;
         const r=await sb.from('tnb_books').select('*').eq('status','published').order('sort_order',{ascending:true}); books=r.data||[];
       }catch(e){}
-      if(!books.length) books=SAMPLE;
 
       if(settings){
         if(settings.tagline) $('#heroTag').textContent=settings.tagline;
